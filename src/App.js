@@ -12,7 +12,7 @@ import { setCurrentUser, signOut, signIn } from './actions';
 function App() {
   const dispatch = useDispatch();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  console.log(isAuthenticated);
   const registerUser = async (data) => {
     try {
       const configs = {
@@ -72,7 +72,7 @@ function App() {
           'Authorization': `bearer ${getUserToken()}`
         }
       }
-      const response = await fetch('https://netflix-reimagined.herokuapp.com/auth/deleteAccount', configs);
+      await fetch('https://netflix-reimagined.herokuapp.com/auth/deleteAccount', configs);
     } catch (err) {
       console.log(err);
     }
